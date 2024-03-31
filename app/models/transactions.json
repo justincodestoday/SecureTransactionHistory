@@ -1,0 +1,142 @@
+[
+  {
+    "id": "1",
+    "date": "2024-03-01",
+    "description": "Coffee shop",
+    "type": "Debit",
+    "amount": 5.75
+  },
+  {
+    "id": "2",
+    "date": "2024-03-02",
+    "description": "Grocery store",
+    "type": "Credit",
+    "amount": 32.5
+  },
+  {
+    "id": "3",
+    "date": "2024-03-03",
+    "description": "Online subscription",
+    "type": "Debit",
+    "amount": 12.99
+  },
+  {
+    "id": "4",
+    "date": "2024-03-04",
+    "description": "Gym membership",
+    "type": "Credit",
+    "amount": 25.0
+  },
+  {
+    "id": "5",
+    "date": "2024-03-05",
+    "description": "Train ticket",
+    "type": "Debit",
+    "amount": 15.75
+  },
+  {
+    "id": "6",
+    "date": "2024-03-06",
+    "description": "Book purchase",
+    "type": "Credit",
+    "amount": 8.99
+  },
+  {
+    "id": "7",
+    "date": "2024-03-07",
+    "description": "Restaurant",
+    "type": "Debit",
+    "amount": 45.25
+  },
+  {
+    "id": "8",
+    "date": "2024-03-08",
+    "description": "Utility bill",
+    "type": "Debit",
+    "amount": 60.0
+  },
+  {
+    "id": "9",
+    "date": "2024-03-09",
+    "description": "Pharmacy",
+    "type": "Credit",
+    "amount": 23.45
+  },
+  {
+    "id": "10",
+    "date": "2024-03-10",
+    "description": "Pet supplies",
+    "type": "Debit",
+    "amount": 18.75
+  },
+  {
+    "id": "11",
+    "date": "2024-03-11",
+    "description": "Mobile recharge",
+    "type": "Credit",
+    "amount": 50.0
+  },
+  {
+    "id": "12",
+    "date": "2024-03-12",
+    "description": "Internet bill",
+    "type": "Debit",
+    "amount": 30.0
+  },
+  {
+    "id": "13",
+    "date": "2024-03-13",
+    "description": "Cinema tickets",
+    "type": "Credit",
+    "amount": 20.0
+  },
+  {
+    "id": "14",
+    "date": "2024-03-14",
+    "description": "Coffee shop",
+    "type": "Debit",
+    "amount": 5.5
+  },
+  {
+    "id": "15",
+    "date": "2024-03-15",
+    "description": "Electronics",
+    "type": "Credit",
+    "amount": 200.0
+  },
+  {
+    "id": "16",
+    "date": "2024-03-16",
+    "description": "Gift",
+    "type": "Debit",
+    "amount": 30.0
+  },
+  {
+    "id": "17",
+    "date": "2024-03-17",
+    "description": "Charity donation",
+    "type": "Credit",
+    "amount": 100.0
+  },
+  {
+    "id": "18",
+    "date": "2024-03-18",
+    "description": "Furniture",
+    "type": "Debit",
+    "amount": 450.0
+  },
+  {
+    "id": "19",
+    "date": "2024-03-19",
+    "description": "Gaming console",
+    "type": "Credit",
+    "amount": 299.99
+  },
+  {
+    "id": "20",
+    "date": "2024-03-20",
+    "description": "Car insurance",
+    "type": "Debit",
+    "amount": 123.45
+  }
+]
