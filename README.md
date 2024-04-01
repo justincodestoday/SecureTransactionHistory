@@ -1,8 +1,8 @@
 This is a simple and secure transaction history screen demo built using **React Native** and **TypeScript**.
 
-This demo has only been tested on an Android simulator. However, the codebase has been developed for both iOS and Android platforms. So feel free to test the demo on either platforms. There are instructions here to guide you to run the demo on your local machine.
+This demo has only been tested on an Android emulator. However, the codebase has been developed for both iOS and Android platforms. So feel free to test the demo on either platforms. There are instructions here to guide you to run the demo on your local machine.
 
-> **Note** that in order to use biometrics to login to the transaction history screen, you must use a physical device. It could either be an iPhone or an Android device.
+> **Note** that in order to use biometrics to login to the transaction history screen, you must use a physical device. It could either be an iPhone or an Android device. For simulation purposes, use the PIN code to authenticate user and navigate to the transaction history screen. The PIN code is 1234.
 
 ## Step 1: Start the Metro Server
 

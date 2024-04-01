@@ -9,6 +9,7 @@ import {
   View,
   TouchableOpacity,
   RefreshControl,
+  ActivityIndicator,
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
@@ -16,39 +17,52 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import moment from 'moment';
 
 import transactions from '../../../models/transactions.json';
-import {promptBiometrics} from '../../biometrics/BiometricsSaga';
 
 type TransactionHistoryNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
   'TransactionHistory'
 >;
 
-const TransactionHistoryScreen = ({
-  navigation,
-}: {
+type Props = {
   navigation: TransactionHistoryNavigationProp;
-}): React.JSX.Element => {
+};
+
+const TransactionHistoryScreen = ({navigation}: Props): React.JSX.Element => {
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
   const [refreshing, setRefreshing] = useState(false);
-  const transactionData: Transaction[] = transactions as Transaction[];
-
-  // useEffect(() => {
-  //   promptBiometrics();
-  // }, []);
+  const [transactionData, setTransactionData] = useState([] as Transaction[]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const onRefresh = useCallback(() => {
+    fetchTransactionData();
     setRefreshing(true);
     setTimeout(() => {
       setRefreshing(false);
     }, 2000);
   }, []);
 
+  const fetchTransactionData = async () => {
+    try {
+      setTransactionData(transactions as Transaction[]);
+    } catch (error: any) {
+      console.error('Fetching from API failed. Try to refresh page.');
+      console.log(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchTransactionData();
+  }, []);
+
   const renderItem = ({item}: {item: Transaction}) => (
     <TouchableOpacity
+      key={item.id}
       style={styles.item}
       onPress={() =>
         navigation.navigate('TransactionDetail', {transaction: item})
@@ -71,6 +85,10 @@ const TransactionHistoryScreen = ({
       <Text style={styles.itemText}>{item.type}</Text>
     </TouchableOpacity>
   );
+
+  if (isLoading) {
+    return <ActivityIndicator />;
+  }
 
   return (
     <SafeAreaView style={backgroundStyle}>
