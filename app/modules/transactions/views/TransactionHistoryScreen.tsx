@@ -18,6 +18,8 @@ import moment from 'moment';
 
 import transactions from '../../../models/transactions.json';
 
+// This navigation prop is specifically for navigating
+// from the 'TransactionHistory' screen.
 type TransactionHistoryNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
   'TransactionHistory'
@@ -37,6 +39,8 @@ const TransactionHistoryScreen = ({navigation}: Props): React.JSX.Element => {
   const [transactionData, setTransactionData] = useState([] as Transaction[]);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Pull to refresh
+  // useCallback returns a memoized callback function
   const onRefresh = useCallback(() => {
     fetchTransactionData();
     setRefreshing(true);
@@ -45,6 +49,8 @@ const TransactionHistoryScreen = ({navigation}: Props): React.JSX.Element => {
     }, 2000);
   }, []);
 
+  // Makes an API call to retrieve the latest transactions from JSON objects.
+  // Or in this case, from the transactions.json file.
   const fetchTransactionData = async () => {
     try {
       setTransactionData(transactions as Transaction[]);
@@ -65,6 +71,7 @@ const TransactionHistoryScreen = ({navigation}: Props): React.JSX.Element => {
       key={item.id}
       style={styles.item}
       onPress={() =>
+        // Pass a transaction object matching the Transaction type
         navigation.navigate('TransactionDetail', {transaction: item})
       }>
       <Text style={styles.itemText}>

@@ -12,8 +12,12 @@ import {
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
+// Define the props that DetailsScreen receives.
+// NativeStackScreenProps include the navigation and route props
+// relevant to the TransactionDetail screen.
 type Props = NativeStackScreenProps<RootStackParamList, 'TransactionDetail'>;
 
+// DetailProps defines the props for a sub-component within DetailsScreen.
 type DetailProps = PropsWithChildren<{
   label: string;
   value: string;
@@ -24,8 +28,10 @@ const TransactionDetailScreen = ({route, navigation}: Props) => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+  // Access parameters that exist and are of the correct type
   const {transaction} = route.params;
 
+  // Sub-component
   const DetailRow = ({label, value}: DetailProps) => (
     <View style={styles.detailRow}>
       <Text style={styles.detailLabel}>{label}</Text>

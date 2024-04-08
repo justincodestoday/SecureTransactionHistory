@@ -1,12 +1,14 @@
 import {Alert} from 'react-native';
 import ReactNativeBiometrics, {BiometryTypes} from 'react-native-biometrics';
 
+// Prompt biometrics to check what biometrics are supported by the device.
 export const promptBiometrics = async () => {
   const rnBiometrics = new ReactNativeBiometrics();
 
   try {
     const {available, biometryType} = await rnBiometrics.isSensorAvailable();
 
+    // Type of biometrics confirmed, then appropriate action is taken.
     if (available) {
       if (biometryType === BiometryTypes.Biometrics) {
         console.log('Biometrics is supported.');
@@ -23,12 +25,13 @@ export const promptBiometrics = async () => {
       return false;
     }
   } catch (error: any) {
-    console.error('Device error', error);
-    Alert.alert('Device error', error.message);
+    console.error('Failed to prompt biometrics', error);
+    Alert.alert('Failed to prompt biometrics', error.message);
     return false;
   }
 };
 
+// Authenticate the user if biometrics is successful.
 export const confirmBiometrics = async () => {
   const rnBiometrics = new ReactNativeBiometrics();
 
@@ -45,7 +48,7 @@ export const confirmBiometrics = async () => {
       return false;
     }
   } catch (error: any) {
-    console.error('Biometrics failed.');
+    console.error('Biometrics failed.', error);
     Alert.alert('Biometrics failed:', error.message);
     return false;
   }

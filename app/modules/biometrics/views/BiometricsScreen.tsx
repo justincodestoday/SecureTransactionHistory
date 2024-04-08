@@ -23,10 +23,14 @@ type Props = {
 const BiometricsScreen = ({navigation}: Props) => {
   const [pin, setPin] = useState('');
 
+  // Run biometrics on Enter PIN screen
   useEffect(() => {
     runBiometrics();
   }, []);
 
+  // If biometrics are confirmed, replace the biometrics screen with
+  // transaction history screen so that user can't navigate back
+  // to biometrics screen again
   const runBiometrics = async () => {
     const isAuthenticated = await promptBiometrics();
     if (isAuthenticated) {
@@ -34,6 +38,8 @@ const BiometricsScreen = ({navigation}: Props) => {
     }
   };
 
+  // Replace the biometrics screen with transaction history
+  // screen when PIN matches.
   const validatePin = (newPin: string) => {
     if (newPin === '1234') {
       console.log('PIN authentication successful');
@@ -54,6 +60,7 @@ const BiometricsScreen = ({navigation}: Props) => {
     setPin('');
   };
 
+  // Checks for every key press
   const handleKeyPress = (number: string | number) => {
     if (pin.length < 4) {
       const newPin = pin + number;
